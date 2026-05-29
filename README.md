@@ -10,7 +10,8 @@ Microservicio Spring Boot para gestionar el catalogo de libros de Relatos de Pap
 - Spring Web
 - Spring Data JPA
 - Jakarta Validation
-- H2 Database
+- H2 Database por defecto
+- PostgreSQL con perfil `postgres`
 - Eureka Discovery Client
 - Actuator
 
@@ -23,12 +24,23 @@ Microservicio Spring Boot para gestionar el catalogo de libros de Relatos de Pap
 - JDBC URL H2: `jdbc:h2:mem:cataloguedb`
 - Usuario H2: `sa`
 - Password H2: vacio
+- PostgreSQL: `jdbc:postgresql://localhost:5432/catalogue_db`
+- Usuario PostgreSQL: `relatos`
+- Password PostgreSQL: `relatos`
 
 ## Ejecutar
 
 ```bash
 mvn spring-boot:run
 ```
+
+Con PostgreSQL, arranca primero la base de datos desde `../database` y despues ejecuta:
+
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+```
+
+El perfil `postgres` usa la base `catalogue_db`, valida el esquema existente y no ejecuta `data.sql`; los datos iniciales se cargan desde los scripts de `database/init`.
 
 Compilar:
 

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogue_db
+    driver-class-name: org.postgresql.Driver
+    username: relatos
+    password: relatos
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: never
